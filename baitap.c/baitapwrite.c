@@ -22,9 +22,16 @@ int main()
 	
 	SV a[10];
 	int n = 2;
-	nhapDSSV(a, n);
-	xuatDSSV(a, n);
+	FILE *fp;
+	
+	fp=fopen("dssv.out", "wb");
+	if(fp!=NULL){
+		fwrite(a, sizeof(SV), n, fp);
+		fclose(fp);
+	}else{printf("loi");}
+	
 				
+	nhapDSSV(a, n);	
 	return 0;
 }
 
